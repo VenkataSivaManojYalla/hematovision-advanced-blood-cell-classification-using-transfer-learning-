@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HematoVision - Blood Cell Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 40px;
+        }
+        input[type="file"] {
+            margin: 20px 0;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔬 HematoVision</h1>
+    <h3>Upload a Blood Cell Image to Predict Cell Type</h3>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <h2>{{ prediction }}</h2>
+    {% endif %}
+
+    {% if image_path %}
+        <img src="{{ image_path }}" alt="Uploaded Image">
+    {% endif %}
+</body>
+</html>
